@@ -1,0 +1,22 @@
+[
+  {
+    "type": "Paczkomaty inpost",
+    "price": 8.99
+  },
+  {
+    "type": "Kurier Pocztex48",
+    "price": 13.99
+  },
+  {
+    "type": "DHL",
+    "price": 14.99
+  },
+    {
+    "type": "DPD",
+    "price": 14.99
+  },
+    {
+    "type": "TNT",
+    "price": 15.99
+  }
+]

@@ -1,0 +1,35 @@
+<h1>Koszyk</h1>
+
+<p>
+  <a routerLink="/shipping">Shipping Prices</a>
+</p>
+
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency:'PLN'}}</span>
+</div>
+
+<div>
+  Podsumowanie ceny: {{ sum | currency:'PLN' }} + dostawa
+</div>
+
+<div>
+  <button (click)="clearCart()">Wyczyść koszyk</button>
+</div>
+
+<form [formGroup]="payForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="login">
+      Login
+    </label>
+    <input id="login" type="text" formControlName="login" />
+  </div>
+
+  <div>
+    <label for="address">
+      Kwota
+    </label>
+    <input id="ammount" type="number" formControlName="ammount" />
+  </div>
+  <button class="button" type="submit">Zapłać</button>
+</form>

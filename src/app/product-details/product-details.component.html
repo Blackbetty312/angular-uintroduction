@@ -1,0 +1,13 @@
+<div *ngIf="!product">
+  <h2>Brak takiego produktu w bazie</h2>
+</div>
+
+<div *ngIf="product">
+  <h2>Szczegóły produktu</h2>
+  <h3>Nazwa produktu: {{ product.name }}</h3>
+  <h4>Cena: {{ product.price | currency:'PLN' }}</h4>
+  <p>Pełen opis: {{ product.description }}</p>
+  <button (click)="addToCart(product)" routerLink="/">
+    Kup teraz!
+  </button>
+</div>
