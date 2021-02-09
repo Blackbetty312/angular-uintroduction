@@ -1,0 +1,8 @@
+<h3>Lista kont użytkowników</h3>
+<div class="shipping-item" *ngFor="let account of accounts">
+	<span>{{ account.login }}</span>
+	<span>{{ account.ammount/100 | currency:'PLN' }}</span>
+	<button  [routerLink]="['/account', account.id]">
+    Szczegóły
+  </button>
+</div>

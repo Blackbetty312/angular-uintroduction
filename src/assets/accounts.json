@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "login": "admin@gmail.com",
+    "ammount": 2000
+  },
+  {
+    "id": 2,
+    "login": "ashwaganda",
+    "ammount": 599
+  },
+  {
+    "id": 3,
+    "login": "turbojet",
+    "ammount": 326
+  },
+    {
+      "id": 4,
+    "login": "walkinaround",
+    "ammount": 999
+  }
+]

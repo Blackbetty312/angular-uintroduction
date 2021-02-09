@@ -1,0 +1,4 @@
+<div class="shipping-item" *ngIf="account">
+	<span>{{ account.login }}</span>
+	<span>{{ account.ammount/100 | currency:'PLN' }}</span>
+</div>

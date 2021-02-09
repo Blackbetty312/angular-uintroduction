@@ -12,6 +12,9 @@ import { CartComponent } from "./cart/cart.component";
 import { CartService } from "./cart.service";
 import { HttpClientModule } from "@angular/common/http";
 import { ShippingComponent } from "./shipping/shipping.component";
+import { AccountListComponent } from "./account-list/account-list.component";
+import { AccountService } from "./account.service";
+import { AccountDetailsComponent } from "./account-details/account-details.component";
 
 @NgModule({
   imports: [
@@ -22,7 +25,9 @@ import { ShippingComponent } from "./shipping/shipping.component";
       { path: "", component: ProductListComponent },
       { path: "products/:productId", component: ProductDetailsComponent }, // dodajemy routing dla opisu produktow
       { path: "cart", component: CartComponent },
-      { path: "shipping", component: ShippingComponent }
+      { path: "shipping", component: ShippingComponent },
+      { path: "accounts", component: AccountListComponent },
+      { path: "account/:accountId", component: AccountDetailsComponent }
     ])
   ],
   declarations: [
@@ -32,10 +37,12 @@ import { ShippingComponent } from "./shipping/shipping.component";
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    AccountListComponent,
+    AccountDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CartService]
+  providers: [CartService, AccountService]
 })
 export class AppModule {}
 
