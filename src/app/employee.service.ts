@@ -21,7 +21,7 @@ export class EmployeeService {
   addNewEmployee(model: EmployeeAddModel) {
     const headers = {
       "content-type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+      "access-control-allow-headers": "*"
     };
     const body = JSON.stringify(model);
     return this.http

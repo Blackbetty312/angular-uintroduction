@@ -1,9 +1,20 @@
 <a [routerLink]="['/']">
-  <h1>My Store</h1>
+	<h1>My Store</h1>
+</a>
+<a [routerLink]="['/employees']">
+	<h1>Pracownicy</h1>
+</a>
+<a [routerLink]="['/accounts']">
+	<h1>Konta</h1>
+</a>
+<a [routerLink]="['/tags']">
+	<h1>Tagi</h1>
 </a>
 
-<a class="button fancy-button" [routerLink]="['/cart']"
-  ><i class="material-icons">shopping_cart</i>({{ count }}) Koszyk {{ sum |
+<a [routerLink]="['/users']">
+	<h1>Userzy</h1>
+</a>
+<a class="button fancy-button" [routerLink]="['/cart']"><i class="material-icons">shopping_cart</i>({{ count }}) Koszyk {{ sum |
   currency:'PLN' }}
 </a>
 
