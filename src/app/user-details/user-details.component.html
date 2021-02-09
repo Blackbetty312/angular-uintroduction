@@ -1,0 +1,10 @@
+<div *ngIf="user">
+  <h3>Użytkownik {{ user.id }}</h3>
+  <div>{{ user.title }} {{ user.firstName }} {{ user.lastName }}</div>
+  <div><b>Gender: </b>{{ user.gender }}</div>
+  <div><b>Date Of Birth: </b> {{ user.dateOfBirth | date }}</div>
+  <div><b>Register Date: </b> {{ user.registerDate | date }}</div>
+  <div><b>Email: </b> {{ user.email }}</div>
+  <div><b>Phone number: </b> {{ user.phone }}</div>
+  <img [src]="user.picture" [alt]="user.lastName" />
+</div>

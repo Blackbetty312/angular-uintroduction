@@ -1,0 +1,5 @@
+<h3>Użytkownicy</h3>
+<div class="shipping-item" *ngFor="let user of users">
+  <span>{{ user.title }} {{ user.firstName }} {{ user.lastName }}</span>
+  <button [routerLink]="['/user', user.id]">Szczegóły</button>
+</div>

@@ -15,6 +15,13 @@ import { ShippingComponent } from "./shipping/shipping.component";
 import { AccountListComponent } from "./account-list/account-list.component";
 import { AccountService } from "./account.service";
 import { AccountDetailsComponent } from "./account-details/account-details.component";
+import { EmployeeListComponent } from "./employee-list/employee-list.component";
+import { EmployeeService } from "./employee.service";
+import { EmployeeDetailsComponent } from "./employee-details/employee-details.component";
+import { TagListComponent } from "./tag-list/tag-list.component";
+import { UserListComponent } from "./user-list/user-list.component";
+import { UserDetailsComponent } from "./user-details/user-details.component";
+import { UserService } from "./user.service";
 
 @NgModule({
   imports: [
@@ -27,7 +34,12 @@ import { AccountDetailsComponent } from "./account-details/account-details.compo
       { path: "cart", component: CartComponent },
       { path: "shipping", component: ShippingComponent },
       { path: "accounts", component: AccountListComponent },
-      { path: "account/:accountId", component: AccountDetailsComponent }
+      { path: "account/:accountId", component: AccountDetailsComponent },
+      { path: "employees", component: EmployeeListComponent },
+      { path: "employee/:employeeId", component: EmployeeDetailsComponent },
+      { path: "tags", component: TagListComponent },
+      { path: "users", component: UserListComponent },
+      { path: "user/:userId", component: UserDetailsComponent }
     ])
   ],
   declarations: [
@@ -39,10 +51,15 @@ import { AccountDetailsComponent } from "./account-details/account-details.compo
     CartComponent,
     ShippingComponent,
     AccountListComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    EmployeeListComponent,
+    EmployeeDetailsComponent,
+    TagListComponent,
+    UserListComponent,
+    UserDetailsComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CartService, AccountService]
+  providers: [CartService, AccountService, EmployeeService, UserService]
 })
 export class AppModule {}
 

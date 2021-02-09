@@ -1,0 +1,8 @@
+<h3>Lista pracowników</h3>
+<div class="shipping-item" *ngFor="let employee of employees">
+  <span>{{ employee.employee_name }}</span>
+  <span>{{ employee.employee_salary/100 | currency:'PLN' }}</span>
+  <button [routerLink]="['/employee', employee.id]">
+    Szczegóły
+  </button>
+</div>
