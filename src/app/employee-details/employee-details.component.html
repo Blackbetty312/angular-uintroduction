@@ -1,0 +1,10 @@
+<div *ngIf="employee">
+  <h3>Użytkownik {{ employee.id }}</h3>
+  <div><b>Imię i nazwisko: </b>{{ employee.employee_name }}</div>
+  <div>
+    <b>Wynagrodzenie: </b>{{ employee.employee_salary/100 | currency:"PLN" }}
+  </div>
+  <div><b>Wiek: </b>{{ employee.employee_age }}</div>
+  <button (click)="onDelete()">Usuń konto użytkownika</button>
+  <button [routerLink]="['/employee/edit', employee.id]">Edytuj</button>
+</div>

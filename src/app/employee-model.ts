@@ -5,3 +5,9 @@ export interface EmployeeModel {
   employee_age: number;
   profile_image: string;
 }
+
+export interface EmployeeAddModel {
+  name: string;
+  salary: string;
+  age: string;
+}

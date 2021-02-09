@@ -1,0 +1,23 @@
+<div *ngIf="employee">
+  <form [formGroup]="editUserForm" (ngSubmit)="onUpdate()">
+    <div>
+      <label for="name">
+        Imię i nazwisko
+      </label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+    <div>
+      <label for="salary">
+        Wynagrodzenie
+      </label>
+      <input id="salary" type="number" formControlName="salary" />
+    </div>
+    <div>
+      <label for="age">
+        Wiek
+      </label>
+      <input id="age" type="number" formControlName="age" />
+    </div>
+    <button class="button" type="submit">Zapisz</button>
+  </form>
+</div>

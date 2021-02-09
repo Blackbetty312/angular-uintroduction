@@ -22,6 +22,8 @@ import { TagListComponent } from "./tag-list/tag-list.component";
 import { UserListComponent } from "./user-list/user-list.component";
 import { UserDetailsComponent } from "./user-details/user-details.component";
 import { UserService } from "./user.service";
+import { EmployeeAddComponent } from "./employee-add/employee-add.component";
+import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
 
 @NgModule({
   imports: [
@@ -36,10 +38,12 @@ import { UserService } from "./user.service";
       { path: "accounts", component: AccountListComponent },
       { path: "account/:accountId", component: AccountDetailsComponent },
       { path: "employees", component: EmployeeListComponent },
-      { path: "employee/:employeeId", component: EmployeeDetailsComponent },
+      { path: "employee/get/:employeeId", component: EmployeeDetailsComponent },
+      { path: "employee/add", component: EmployeeAddComponent },
       { path: "tags", component: TagListComponent },
       { path: "users", component: UserListComponent },
-      { path: "user/:userId", component: UserDetailsComponent }
+      { path: "user/:userId", component: UserDetailsComponent },
+      { path: "employee/edit/:employeeId", component: EmployeeEditComponent }
     ])
   ],
   declarations: [
@@ -56,7 +60,9 @@ import { UserService } from "./user.service";
     EmployeeDetailsComponent,
     TagListComponent,
     UserListComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    EmployeeAddComponent,
+    EmployeeEditComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService, AccountService, EmployeeService, UserService]
