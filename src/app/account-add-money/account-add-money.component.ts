@@ -40,8 +40,7 @@ export class AccountAddMoneyComponent implements OnInit {
         newModel.ammount += this.addMoneyForm.value.ammount * 100;
         console.log(newModel);
         this.accountService.updateAccountById(accountIdFromRoute, newModel);
+        
       });
-    window.alert("Konto zostało doładowane");
-    this.router.navigate(["/accounts"]);
   }
 }

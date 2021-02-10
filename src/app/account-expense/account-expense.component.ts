@@ -44,8 +44,8 @@ export class AccountExpenseComponent implements OnInit {
         const newModel = account;
         newModel.ammount -= this.sumExpenses;
         this.accountService.updateAccountById(accountIdFromRoute, newModel);
+        window.alert("Rachunki zostały opłacone");
+        this.router.navigate(["/accounts"], { skipLocationChange: true });
       });
-    window.alert("Rachunki zostały opłacone");
-    this.router.navigate(["/accounts"]);
   }
 }
