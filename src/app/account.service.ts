@@ -9,8 +9,11 @@ import { AccountModel } from "../account-model";
 export class AccountService {
   baseUrl =
     "https://angular-project-a6abb-default-rtdb.europe-west1.firebasedatabase.app/";
-  params = { auth: "PQg3mM42raewuqlqiLV4JyyPhNPIrAiJaiLmgqOS" };
-  constructor(private http: HttpClient) {}
+  //params = { auth: "PQg3mM42raewuqlqiLV4JyyPhNPIrAiJaiLmgqOS" };
+  params;
+  constructor(private http: HttpClient) {
+    this.params = { auth: localStorage.getItem("authKey") };
+  }
 
   getAccountList() {
     return this.http.get(this.baseUrl + "salda.json", { params: this.params });

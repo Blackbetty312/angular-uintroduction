@@ -6,6 +6,6 @@
 	<br>
 	<b>Twoje saldo:</b> {{ accountAmmount/100 | currency:'PLN' }}
 	<br>
-	<b>Saldo po opłaceniu:</b> {{ afterPay/ | currency:'PLN'  }}
+	<b>Saldo po opłaceniu:</b> {{ afterPay/100 | currency:'PLN'  }}
 	<div><button (click)="payExpenses()">Zapłać</button></div>
 </div>
