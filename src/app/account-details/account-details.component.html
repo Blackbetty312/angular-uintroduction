@@ -1,4 +1,8 @@
-<div class="shipping-item" *ngIf="account">
-	<span>{{ account.login }}</span>
-	<span>{{ account.ammount/100 | currency:'PLN' }}</span>
+<div *ngIf="account">
+	<div>
+		<span>{{ account.login }}</span>
+		<span>{{ account.ammount/100 | currency:'PLN' }}</span>
+	</div>
+	<div><button (click)="onDelete()">Usuń konto użytkownika</button></div>
+	<div><button [routerLink]="['/account/money/add/', account.id]">Doładuj konto</button></div>
 </div>

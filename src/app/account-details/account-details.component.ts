@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { AccountModel } from "../../account-model";
 import { AccountService } from "../account.service";
 
@@ -9,25 +9,39 @@ import { AccountService } from "../account.service";
   styleUrls: ["./account-details.component.css"]
 })
 export class AccountDetailsComponent implements OnInit {
-  accounts: AccountModel[];
   account: AccountModel;
   constructor(
     private route: ActivatedRoute,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) {}
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
-    const accountIdFromRoute = Number(routeParams.get("accountId"));
-    this.getAccounts(accountIdFromRoute);
+    const accountIdFromRoute = String(routeParams.get("accountId"));
+    this.getAccountById(accountIdFromRoute);
   }
-  getAccounts(id: number) {
-    this.accountService
-      .getAccountList()
-      .subscribe(
-        accounts => (
-          (this.accounts = accounts),
-          (this.account = accounts.find(x => x.id === id))
-        )
-      );
+  getAccountById(id: String) {
+    this.accountService.getAccountList().subscribe(accounts => {
+      this.account = this.convertJson(accounts).find(x => x.id === id);
+    });
+  }
+  convertJson(json) {
+    return Object.keys(json).map(key => ({
+      id: key,
+      login: json[key].login,
+      ammount: json[key].ammount
+    }));
+  }
+
+  onDelete() {
+    const routeParams = this.route.snapshot.paramMap;
+    const accountIdFromRoute = String(routeParams.get("accountId"));
+    this.deleteAccount(accountIdFromRoute);
+    window.alert("Konto usunięto");
+    this.router.navigate(["/accounts"]);
+  }
+
+  deleteAccount(id: String) {
+    this.accountService.deleteAccountById(id);
   }
 }

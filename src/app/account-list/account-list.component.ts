@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AccountModel } from "../../account-model";
+import { AccountModel } from "../account-model";
 import { AccountService } from "../account.service";
 
 @Component({
@@ -8,7 +9,7 @@ import { AccountService } from "../account.service";
   styleUrls: ["./account-list.component.css"]
 })
 export class AccountListComponent implements OnInit {
-  accounts: AccountModel[];
+  accounts: AccountModel;
   constructor(private accountService: AccountService) {}
 
   ngOnInit() {
@@ -16,8 +17,16 @@ export class AccountListComponent implements OnInit {
   }
 
   getAccounts() {
-    this.accountService
-      .getAccountList()
-      .subscribe(accounts => (this.accounts = accounts));
+    this.accountService.getAccountList().subscribe(accounts => {
+      this.accounts = this.convertJson(accounts);
+    });
+  }
+
+  convertJson(json) {
+    return Object.keys(json).map(key => ({
+      id: key,
+      login: json[key].login,
+      ammount: json[key].ammount
+    }));
   }
 }

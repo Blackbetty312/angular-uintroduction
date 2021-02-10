@@ -24,6 +24,9 @@ import { UserDetailsComponent } from "./user-details/user-details.component";
 import { UserService } from "./user.service";
 import { EmployeeAddComponent } from "./employee-add/employee-add.component";
 import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
+import { ObservablePracticeComponent } from "./observable-practice/observable-practice.component";
+import { AccountAddComponent } from "./account-add/account-add.component";
+import { AccountAddMoneyComponent } from "./account-add-money/account-add-money.component";
 
 @NgModule({
   imports: [
@@ -36,14 +39,20 @@ import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
       { path: "cart", component: CartComponent },
       { path: "shipping", component: ShippingComponent },
       { path: "accounts", component: AccountListComponent },
-      { path: "account/:accountId", component: AccountDetailsComponent },
+      { path: "account/get/:accountId", component: AccountDetailsComponent },
+      { path: "account/add", component: AccountAddComponent },
+      {
+        path: "account/money/add/:accountId",
+        component: AccountAddMoneyComponent
+      },
       { path: "employees", component: EmployeeListComponent },
       { path: "employee/get/:employeeId", component: EmployeeDetailsComponent },
       { path: "employee/add", component: EmployeeAddComponent },
+      { path: "employee/edit/:employeeId", component: EmployeeEditComponent },
       { path: "tags", component: TagListComponent },
       { path: "users", component: UserListComponent },
       { path: "user/:userId", component: UserDetailsComponent },
-      { path: "employee/edit/:employeeId", component: EmployeeEditComponent }
+      { path: "observable", component: ObservablePracticeComponent }
     ])
   ],
   declarations: [
@@ -62,7 +71,10 @@ import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
     UserListComponent,
     UserDetailsComponent,
     EmployeeAddComponent,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    ObservablePracticeComponent,
+    AccountAddComponent,
+    AccountAddMoneyComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService, AccountService, EmployeeService, UserService]

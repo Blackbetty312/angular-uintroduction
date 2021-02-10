@@ -1,0 +1,10 @@
+<h3>Dodawanie nowego użytkownika</h3>
+<form [formGroup]="addAccountForm" (ngSubmit)="addAccount()">
+	<div>
+		<label for="login">
+      Login
+    </label>
+		<input id="login" type="text" formControlName="login" />
+  </div>
+		<button class="button" type="submit">Dodaj</button>
+</form>

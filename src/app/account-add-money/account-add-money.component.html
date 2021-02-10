@@ -1,0 +1,9 @@
+<form [formGroup]="addMoneyForm" (ngSubmit)="onAddMoney()">
+	<div>
+		<label for="ammount">
+        Kwota:
+      </label>
+		<input id="ammount" type="number" formControlName="ammount"/>
+    </div>
+		<button class="button" type="submit">Doładuj</button>
+</form>

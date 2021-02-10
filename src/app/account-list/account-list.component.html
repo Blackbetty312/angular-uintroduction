@@ -1,8 +1,9 @@
 <h3>Lista kont użytkowników</h3>
+<button [routerLink]="['/account/add']">Dodaj nowego użytkownika</button>
 <div class="shipping-item" *ngFor="let account of accounts">
 	<span>{{ account.login }}</span>
 	<span>{{ account.ammount/100 | currency:'PLN' }}</span>
-	<button  [routerLink]="['/account', account.id]">
+	<button  [routerLink]="['/account/get/', account.id]">
     Szczegóły
   </button>
 </div>
