@@ -3,7 +3,7 @@
 <div class="shipping-item" *ngFor="let account of accounts">
 	<span>{{ account.login }}</span>
 	<span>{{ account.ammount/100 | currency:'PLN' }}</span>
-	<button  [routerLink]="['/account/get/', account.id]">
-    Szczegóły
+	<button [routerLink]="['/account/get/', account.id]">
+    Szczegóły<b *ngIf="account.ammount < 0"> DEBET!</b><br>
   </button>
 </div>

@@ -20,9 +20,7 @@ export class AccountAddComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    console.log(x);
-  }
+  ngOnInit() {}
 
   addAccount() {
     const model: AccountModel = {
