@@ -34,13 +34,17 @@ export class AccountService {
   }
 
   getAccountById(id: String) {
-    return this.http.get(this.baseUrl + "salda/" + id + ".json", { params: this.params });
+    return this.http.get(this.baseUrl + "salda/" + id + ".json", {
+      params: this.params
+    });
   }
 
   updateAccountById(id: String, model: AccountModel) {
     const body = JSON.stringify(model);
     return this.http
-      .put(this.baseUrl + "salda/" + id + ".json", body, { params: this.params })
+      .put(this.baseUrl + "salda/" + id + ".json", body, {
+        params: this.params
+      })
       .subscribe(err => {
         console.log(err);
       });

@@ -27,6 +27,7 @@ import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
 import { ObservablePracticeComponent } from "./observable-practice/observable-practice.component";
 import { AccountAddComponent } from "./account-add/account-add.component";
 import { AccountAddMoneyComponent } from "./account-add-money/account-add-money.component";
+import { AccountExpenseComponent } from "./account-expense/account-expense.component";
 
 @NgModule({
   imports: [
@@ -44,6 +45,10 @@ import { AccountAddMoneyComponent } from "./account-add-money/account-add-money.
       {
         path: "account/money/add/:accountId",
         component: AccountAddMoneyComponent
+      },
+      {
+        path: "account/expenses/:accountId",
+        component: AccountExpenseComponent
       },
       { path: "employees", component: EmployeeListComponent },
       { path: "employee/get/:employeeId", component: EmployeeDetailsComponent },
@@ -74,7 +79,8 @@ import { AccountAddMoneyComponent } from "./account-add-money/account-add-money.
     EmployeeEditComponent,
     ObservablePracticeComponent,
     AccountAddComponent,
-    AccountAddMoneyComponent
+    AccountAddMoneyComponent,
+    AccountExpenseComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService, AccountService, EmployeeService, UserService]
