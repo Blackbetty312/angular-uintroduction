@@ -7,5 +7,8 @@
 	<b>Twoje saldo:</b> {{ accountAmmount/100 | currency:'PLN' }}
 	<br>
 	<b>Saldo po opłaceniu:</b> {{ afterPay/100 | currency:'PLN'  }}
-	<div><button (click)="payExpenses()">Zapłać</button></div>
+	<div>
+		<button id="rich" (click)="payExpenses()" *ngIf="accountAmmount > 0">Zapłać</button>
+		<button id="poor" *ngIf="accountAmmount < 0">MASZ DEBET. NIE MOŻESZ OPŁACIĆ RACHUNKU</button>
+	</div>
 </div>
