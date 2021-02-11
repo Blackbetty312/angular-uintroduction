@@ -1,7 +1,0 @@
-{
-    "/api/*": {
-        "target": "https://dummy.restapiexample.com",
-        "secure": false,
-        "logLevel": "debug"
-    }
-}

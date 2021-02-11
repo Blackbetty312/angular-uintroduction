@@ -60,13 +60,13 @@ export class AccountGooglePayComponent implements OnInit {
     console.error("error", event.error);
   };
 
-  onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler = paymentData => {
-    console.log("payment authorized", paymentData);
+  // onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler = paymentData => {
+  //   console.log("payment authorized", paymentData);
 
-    return {
-      transactionState: "SUCCESS"
-    };
-  };
+  //   return {
+  //     transactionState: "SUCCESS"
+  //   };
+  // };
 
   onReadyToPayChange = (event: CustomEvent<ReadyToPayChangeResponse>): void => {
     console.log("ready to pay change", event.detail);
@@ -85,4 +85,21 @@ export class AccountGooglePayComponent implements OnInit {
         this.router.navigate(["/account/get", accountIdFromRoute]);
       });
   }
+
+  // makeString(len: number): string {
+  //   let outString: string = "";
+  //   let inOptions: string =
+  //     "abcdefghijklmnopqrstuvwxyz0123456789QWERTYUIOPASDFGHJKLZXCVBNM";
+
+  //   for (let i = 0; i < len; i++) {
+  //     outString += inOptions.charAt(
+  //       Math.floor(Math.random() * inOptions.length)
+  //     );
+  //   }
+  //   return outString;
+  // }
+
+  // payWithDatatrans() {
+  //   console.log(this.accountService.initializeTransaction().subscribe());
+  // }
 }

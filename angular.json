@@ -30,7 +30,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/js/datatrans-2.0.0.js"]
           },
           "configurations": {
             "production": {
