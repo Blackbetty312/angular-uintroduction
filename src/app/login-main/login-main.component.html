@@ -1,0 +1,28 @@
+<div *ngIf="!key">
+	<div>
+		<div class="login-form-window">
+			<span></span>
+			<span class="triangle-second"></span>
+			<div>
+				<h1> Logowanie </h1>
+				<form>
+
+					<input matInput id="login-email" formControlName="email" placeholder="Email" class="login-input"><br>
+					<input matInput id="login-password" [type]="'password'" formControlName="password" placeholder="Hasło"><br>
+
+					<button type="submit">
+          <p>Zaloguj</p>
+        </button>
+
+
+					<div class="forgot-password-label">
+						<p> <a href="#" class="forgot-password-link">Nie pamiętam hasła</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="key">
+	<h1>Jesteś już zalogowany</h1>
+</div>

@@ -4,6 +4,6 @@
 		<span>{{ account.ammount/100 | currency:'PLN' }}</span>
 	</div>
 	<div><button (click)="onDelete()">Usuń konto użytkownika</button></div>
-	<div><button [routerLink]="['/account/money/add/', account.id]">Doładuj konto</button></div>
+	<div><button [routerLink]="['/account/googlepay/add/', account.id]">Doładuj konto</button></div>
 	<div><button [routerLink]="['/account/expenses/', account.id]">Rachunki</button></div>
 </div>

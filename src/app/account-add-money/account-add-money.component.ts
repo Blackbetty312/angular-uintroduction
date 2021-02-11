@@ -35,12 +35,13 @@ export class AccountAddMoneyComponent implements OnInit {
     const model = this.accountService
       .getAccountById(accountIdFromRoute)
       .subscribe((account: AccountModel) => {
-        console.log(account);
         const newModel: AccountModel = account;
         newModel.ammount += this.addMoneyForm.value.ammount * 100;
-        console.log(newModel);
         this.accountService.updateAccountById(accountIdFromRoute, newModel);
-        
+        window.alert(
+          "Doładowano konto kwotą " + this.addMoneyForm.value.ammount
+        );
+        this.router.navigate(["/account/get", accountIdFromRoute]);
       });
   }
 }

@@ -28,12 +28,18 @@ import { ObservablePracticeComponent } from "./observable-practice/observable-pr
 import { AccountAddComponent } from "./account-add/account-add.component";
 import { AccountAddMoneyComponent } from "./account-add-money/account-add-money.component";
 import { AccountExpenseComponent } from "./account-expense/account-expense.component";
+import { LoginMainComponent } from "./login-main/login-main.component";
+import { AccountGooglePayComponent } from "./account-google-pay/account-google-pay.component";
+import { FormsModule } from "@angular/forms";
+import { GooglePayButtonModule } from "@google-pay/button-angular";
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
+    GooglePayButtonModule,
     RouterModule.forRoot([
       { path: "", component: ProductListComponent },
       { path: "products/:productId", component: ProductDetailsComponent }, // dodajemy routing dla opisu produktow
@@ -47,6 +53,10 @@ import { AccountExpenseComponent } from "./account-expense/account-expense.compo
         component: AccountAddMoneyComponent
       },
       {
+        path: "account/googlepay/add/:accountId",
+        component: AccountGooglePayComponent
+      },
+      {
         path: "account/expenses/:accountId",
         component: AccountExpenseComponent
       },
@@ -57,7 +67,8 @@ import { AccountExpenseComponent } from "./account-expense/account-expense.compo
       { path: "tags", component: TagListComponent },
       { path: "users", component: UserListComponent },
       { path: "user/:userId", component: UserDetailsComponent },
-      { path: "observable", component: ObservablePracticeComponent }
+      { path: "observable", component: ObservablePracticeComponent },
+      { path: "login", component: LoginMainComponent }
     ])
   ],
   declarations: [
@@ -80,7 +91,9 @@ import { AccountExpenseComponent } from "./account-expense/account-expense.compo
     ObservablePracticeComponent,
     AccountAddComponent,
     AccountAddMoneyComponent,
-    AccountExpenseComponent
+    AccountExpenseComponent,
+    LoginMainComponent,
+    AccountGooglePayComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService, AccountService, EmployeeService, UserService]

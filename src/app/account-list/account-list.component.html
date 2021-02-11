@@ -1,9 +1,14 @@
-<h3>Lista kont użytkowników</h3>
-<button [routerLink]="['/account/add']">Dodaj nowego użytkownika</button>
-<div class="shipping-item" *ngFor="let account of accounts">
-	<span>{{ account.login }}</span>
-	<span>{{ account.ammount/100 | currency:'PLN' }}</span>
-	<button [routerLink]="['/account/get/', account.id]">
+<div *ngIf="key">
+	<h3>Lista kont użytkowników</h3>
+	<button [routerLink]="['/account/add']">Dodaj nowego użytkownika</button>
+	<div class="shipping-item" *ngFor="let account of accounts">
+		<span>{{ account.login }}</span>
+		<span>{{ account.ammount/100 | currency:'PLN' }}</span>
+		<button [routerLink]="['/account/get/', account.id]">
     Szczegóły<b *ngIf="account.ammount < 0"> DEBET!</b><br>
   </button>
+	</div>
+</div>
+<div *ngIf="!key">
+	<h1>Nie zalogowano</h1>
 </div>

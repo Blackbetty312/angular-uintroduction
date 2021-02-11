@@ -1,0 +1,76 @@
+<style></style>
+
+<div class="content" role="main">
+	<div class="params">
+		<label>
+      <span>Kwota doładowania:</span><br>
+      <input type="text" [(ngModel)]="amount" />
+    </label>
+	</div>
+
+	<div class="examples">
+		<div class="example">
+			<div class="demo">
+				<google-pay-button environment="TEST" [buttonType]="buttonType" [buttonColor]="buttonColor"
+					[existingPaymentMethodRequired]="existingPaymentMethodRequired" [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'PLN',
+              countryCode: 'PL'
+            }
+          }" (loadpaymentdata)="onLoadPaymentData($event)" (error)="onError($event)"></google-pay-button>
+			</div>
+		</div>
+		<!-- <div class="example">
+			<div class="title">Payment Authorization</div>
+			<div class="demo">
+				<google-pay-button environment="TEST" [buttonType]="buttonType" [buttonColor]="buttonColor"
+					[existingPaymentMethodRequired]="existingPaymentMethodRequired" [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            },
+            callbackIntents: ['PAYMENT_AUTHORIZATION']
+          }" (loadpaymentdata)="onLoadPaymentData($event)" (error)="onError($event)"
+					[paymentAuthorizedCallback]="onPaymentDataAuthorized"></google-pay-button>
+			</div>
+		</div>
+		<div class="example">
+			<div class="title">Require Shipping</div>
+			<div class="demo">
+				<google-pay-button environment="TEST" [buttonType]="buttonType" [buttonColor]="buttonColor"
+					[existingPaymentMethodRequired]="existingPaymentMethodRequired" [paymentRequest]="{
+            apiVersion: paymentRequest.apiVersion,
+            apiVersionMinor: paymentRequest.apiVersionMinor,
+            allowedPaymentMethods: paymentRequest.allowedPaymentMethods,
+            merchantInfo: paymentRequest.merchantInfo,
+            transactionInfo: {
+              totalPriceStatus: 'FINAL',
+              totalPriceLabel: 'Total',
+              totalPrice: amount,
+              currencyCode: 'USD',
+              countryCode: 'US'
+            },
+            shippingAddressRequired: true,
+            callbackIntents: ['PAYMENT_AUTHORIZATION']
+          }" (loadpaymentdata)="onLoadPaymentData($event)" (error)="onError($event)"
+					(readytopaychange)="onReadyToPayChange($event)"
+					[paymentAuthorizedCallback]="onPaymentDataAuthorized">
+				</google-pay-button>
+			</div>
+		</div> -->
+	</div>
+</div>

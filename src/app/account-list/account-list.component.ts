@@ -11,10 +11,14 @@ import { AccountService } from "../account.service";
 })
 export class AccountListComponent implements OnInit {
   accounts: AccountModel;
+  key: boolean;
   constructor(private accountService: AccountService) {}
 
   ngOnInit() {
     this.getAccounts();
+    this.key =
+      localStorage.getItem("authKey") ===
+      "PQg3mM42raewuqlqiLV4JyyPhNPIrAiJaiLmgqOS";
   }
 
   getAccounts() {
