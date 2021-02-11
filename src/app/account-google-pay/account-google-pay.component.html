@@ -12,7 +12,8 @@
 		<div class="example">
 			<div class="demo">
 				<google-pay-button environment="TEST" [buttonType]="buttonType" [buttonColor]="buttonColor"
-					[existingPaymentMethodRequired]="existingPaymentMethodRequired" [paymentRequest]="{
+					[buttonSizeMode]="buttonSizeMode" [existingPaymentMethodRequired]="existingPaymentMethodRequired"
+					[paymentRequest]="{
             apiVersion: paymentRequest.apiVersion,
             apiVersionMinor: paymentRequest.apiVersionMinor,
             allowedPaymentMethods: paymentRequest.allowedPaymentMethods,

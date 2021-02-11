@@ -52,4 +52,8 @@ export class AccountService {
         console.log(err);
       });
   }
+
+  getUsers() {
+    return this.http.get(this.baseUrl + "user.json");
+  }
 }

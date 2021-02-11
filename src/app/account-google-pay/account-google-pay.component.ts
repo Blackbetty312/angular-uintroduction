@@ -20,7 +20,8 @@ export class AccountGooglePayComponent implements OnInit {
 
   amount = "10.00";
   buttonType = "buy";
-  buttonColor = "default";
+  buttonColor = "black";
+  buttonSizeMode = "fill";
   existingPaymentMethodRequired = false;
 
   paymentRequest = {
@@ -52,17 +53,7 @@ export class AccountGooglePayComponent implements OnInit {
     event: CustomEvent<google.payments.api.PaymentData>
   ): void => {
     console.log("load payment data", event.detail);
-    const routeParams = this.route.snapshot.paramMap;
-    const accountIdFromRoute = String(routeParams.get("accountId"));
-    const model = this.accountService
-      .getAccountById(accountIdFromRoute)
-      .subscribe((account: AccountModel) => {
-        const newModel: AccountModel = account;
-        newModel.ammount += Number(this.amount) * 100;
-        this.accountService.updateAccountById(accountIdFromRoute, newModel);
-        window.alert("Doładowano konto kwotą " + this.amount);
-        this.router.navigate(["/account/get", accountIdFromRoute]);
-      });
+    this.addMoney();
   };
 
   onError = (event: ErrorEvent): void => {
@@ -80,4 +71,18 @@ export class AccountGooglePayComponent implements OnInit {
   onReadyToPayChange = (event: CustomEvent<ReadyToPayChangeResponse>): void => {
     console.log("ready to pay change", event.detail);
   };
+
+  addMoney() {
+    const routeParams = this.route.snapshot.paramMap;
+    const accountIdFromRoute = String(routeParams.get("accountId"));
+    const model = this.accountService
+      .getAccountById(accountIdFromRoute)
+      .subscribe((account: AccountModel) => {
+        const newModel: AccountModel = account;
+        newModel.ammount += Number(this.amount) * 100;
+        this.accountService.updateAccountById(accountIdFromRoute, newModel);
+        window.alert("Doładowano konto kwotą " + this.amount);
+        this.router.navigate(["/account/get", accountIdFromRoute]);
+      });
+  }
 }
