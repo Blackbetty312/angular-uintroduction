@@ -32,6 +32,10 @@ import { LoginMainComponent } from "./login-main/login-main.component";
 import { AccountGooglePayComponent } from "./account-google-pay/account-google-pay.component";
 import { FormsModule } from "@angular/forms";
 import { GooglePayButtonModule } from "@google-pay/button-angular";
+import { AuthorizationCallbackComponent } from "./authorization-callback/authorization-callback.component";
+import { KeysPipePipe } from "./keys-pipe.pipe";
+import { KeysPipe } from "./keys.pipe";
+import { AuthorizationService } from './authorization.service';
 
 @NgModule({
   imports: [
@@ -68,7 +72,8 @@ import { GooglePayButtonModule } from "@google-pay/button-angular";
       { path: "users", component: UserListComponent },
       { path: "user/:userId", component: UserDetailsComponent },
       { path: "observable", component: ObservablePracticeComponent },
-      { path: "login", component: LoginMainComponent }
+      { path: "login", component: LoginMainComponent },
+      { path: "callback", component: AuthorizationCallbackComponent }
     ])
   ],
   declarations: [
@@ -93,10 +98,12 @@ import { GooglePayButtonModule } from "@google-pay/button-angular";
     AccountAddMoneyComponent,
     AccountExpenseComponent,
     LoginMainComponent,
-    AccountGooglePayComponent
+    AccountGooglePayComponent,
+    AuthorizationCallbackComponent,
+    KeysPipe
   ],
   bootstrap: [AppComponent],
-  providers: [CartService, AccountService, EmployeeService, UserService]
+  providers: [CartService, AccountService, EmployeeService, UserService, AuthorizationService]
 })
 export class AppModule {}
 

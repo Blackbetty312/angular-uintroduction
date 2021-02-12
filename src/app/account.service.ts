@@ -13,7 +13,8 @@ export class AccountService {
   params;
   dataTransApi = "https://api.sandbox.datatrans.com/v1/";
   constructor(private http: HttpClient) {
-    this.params = { auth: localStorage.getItem("authKey") };
+    //this.params = { auth: localStorage.getItem("authKey") };
+    this.params = { auth: "PQg3mM42raewuqlqiLV4JyyPhNPIrAiJaiLmgqOS" };
   }
 
   getAccountList() {

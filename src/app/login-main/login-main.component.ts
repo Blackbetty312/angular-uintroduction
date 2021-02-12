@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AccountService } from "../account.service";
+import { AuthorizationService } from "../authorization.service";
 
 @Component({
   selector: "app-login-main",
@@ -15,7 +16,8 @@ export class LoginMainComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private authorizationService: AuthorizationService
   ) {}
 
   ngOnInit() {
@@ -55,5 +57,9 @@ export class LoginMainComponent implements OnInit {
       login: json[key].login,
       password: json[key].password
     }));
+  }
+
+  onLoginViaGoogle() {
+    window.location.href = this.authorizationService.authorizeRequest();
   }
 }

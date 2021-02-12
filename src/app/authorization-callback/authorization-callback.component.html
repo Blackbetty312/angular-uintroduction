@@ -1,0 +1,17 @@
+<div *ngIf="!flag">
+	<div *ngFor="let err of queryParams | keys">
+		<b>{{err}}</b><br><br>
+  </div>
+	</div>
+
+	<div *ngIf="access_token">
+		access_token:<br> {{access_token}}
+</div>
+
+		<div *ngIf="access_token">
+			expires_in:<br> {{expires_in}}
+</div>
+
+			<div *ngIf="userInfo">
+				<br> {{userInfo.e}}
+</div>

@@ -16,9 +16,10 @@ export class AccountListComponent implements OnInit {
 
   ngOnInit() {
     this.getAccounts();
-    this.key =
-      localStorage.getItem("authKey") ===
-      "PQg3mM42raewuqlqiLV4JyyPhNPIrAiJaiLmgqOS";
+    // this.key =
+    //   localStorage.getItem("authKey") ===
+    //   "PQg3mM42raewuqlqiLV4JyyPhNPIrAiJaiLmgqOS";
+    this.key = true;
   }
 
   getAccounts() {
