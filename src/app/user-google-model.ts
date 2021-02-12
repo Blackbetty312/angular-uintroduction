@@ -10,7 +10,7 @@ export class UserGoogleModel {
     user.email = obj.email;
     user.emailVerified = obj.email_verified;
     user.locale = obj.locale;
-    user.email = obj.name;
+    user.name = obj.name;
     user.picture = obj.picture;
     return user;
   }

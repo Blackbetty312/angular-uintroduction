@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { AuthorizationService } from "../authorization.service";
 import jwt_decode from "jwt-decode";
 import { UserGoogleModel } from "../user-google-model";
+import { AccountService } from "../account.service";
 
 @Component({
   selector: "app-authorization-callback",
@@ -18,7 +19,9 @@ export class AuthorizationCallbackComponent implements OnInit {
   userInfo: UserGoogleModel;
   constructor(
     private route: ActivatedRoute,
-    private authorizationService: AuthorizationService
+    private authorizationService: AuthorizationService,
+    private router: Router,
+    private accountService: AccountService
   ) {}
 
   ngOnInit() {
@@ -31,10 +34,17 @@ export class AuthorizationCallbackComponent implements OnInit {
           this.expires_in = data.expires_in;
           this.id_token = data.id_token;
           this.flag = true;
-          console.log(jwt_decode(this.id_token));
           this.userInfo = UserGoogleModel.fromToken(jwt_decode(this.id_token));
+          this.accountService.addUserViaGoogle(
+            this.userInfo.email,
+            this.access_token
+          );
+          localStorage.setItem("access_token", this.access_token);
+          //this.router.navigate(["/accounts"]);
         },
-        error => console.log("oops", error)
+        error => {
+          console.log("oops", error);
+        }
       );
   }
 }

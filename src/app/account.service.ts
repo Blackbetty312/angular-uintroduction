@@ -67,4 +67,13 @@ export class AccountService {
       Authorization: "Basic MTEwMDAyODUyNjpxeGgxWGxkREdycjRJck5B"
     };
   }
+
+  addUserViaGoogle(email: string, accessToken: string) {
+    const model = new Object();
+    model.email = email;
+    model.access_token = accessToken;
+    const body = JSON.stringify(model);
+    console.log(body);
+    return this.http.post(this.baseUrl + "user.json", body).subscribe();
+  }
 }
