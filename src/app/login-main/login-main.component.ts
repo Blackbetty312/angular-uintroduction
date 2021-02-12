@@ -62,4 +62,5 @@ export class LoginMainComponent implements OnInit {
   onLoginViaGoogle() {
     window.location.href = this.authorizationService.authorizeRequest();
   }
+  checkLoginState() {}
 }
