@@ -53,7 +53,7 @@ export class AccountGooglePayComponent implements OnInit {
     event: CustomEvent<google.payments.api.PaymentData>
   ): void => {
     console.log("load payment data", event.detail);
-    this.addMoney();
+    this.addMoney(); // po zatwierdzeniu trans
   };
 
   onError = (event: ErrorEvent): void => {
@@ -99,7 +99,5 @@ export class AccountGooglePayComponent implements OnInit {
   //   return outString;
   // }
 
-  // payWithDatatrans() {
-  //   console.log(this.accountService.initializeTransaction().subscribe());
-  // }
+  payWithDatatrans() {}
 }

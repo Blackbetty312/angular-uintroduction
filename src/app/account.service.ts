@@ -60,12 +60,7 @@ export class AccountService {
   }
 
   initializeTransaction() {
-    const b64 = btoa("1100028526:qxh1XldDGrr4IrNA");
-    const headers = {
-      "content-type": "application/json",
-      "access-control-allow-headers": "*",
-      Authorization: "Basic MTEwMDAyODUyNjpxeGgxWGxkREdycjRJck5B"
-    };
+    return "210215153042028778";
   }
 
   addUserViaGoogle(email: string, accessToken: string) {
